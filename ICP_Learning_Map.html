@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICP Course Learning Map — St John Ambulance NT 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap');
+  :root {
+    --font: 'Aptos', 'Nunito Sans', 'Segoe UI', Calibri, sans-serif;
+    --bg:#f0f2f5; --surface:#ffffff; --card:#ffffff;
+    --border:#dde1e8; --border2:#c8cdd7;
+    --w1:#c0392b; --w1-dim:#fdecea; --w1-text:#7b1a12;
+    --w2:#1a6fb5; --w2-dim:#e8f2fc; --w2-text:#0d3d6b;
+    --w3:#1e7e4e; --w3-dim:#e8f7ef; --w3-text:#0e4428;
+    --w4:#7b3fa0; --w4-dim:#f3eafa; --w4-text:#4a1f64;
+    --w5:#b85c00; --w5-dim:#fdf0e6; --w5-text:#6b3400;
+    --w6:#2e6b8a; --w6-dim:#e6f3f8; --w6-text:#173848;
+    --accent:#1a6fb5; --gold:#b07d00; --gold-bg:#fdf8e8;
+    --text:#1a1d23; --text2:#4a5060; --muted:#7a8090; --light:#f7f8fa;
+  }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:var(--font); font-size:14px; line-height:1.55; }
+  header { background:var(--surface); border-bottom:3px solid var(--w1); padding:28px 40px 22px; display:flex; align-items:flex-start; gap:20px; }
+  .hlogo { width:50px; height:50px; flex-shrink:0; background:var(--w1); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; font-weight:800; }
+  .hkicker { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+  header h1 { font-size:clamp(20px,3.2vw,32px); font-weight:800; line-height:1.1; margin-bottom:6px; }
+  header h1 em { font-style:normal; color:var(--w1); }
+  header p { color:var(--text2); font-size:13px; max-width:580px; }
+  .hbadges { margin-top:8px; display:flex; gap:7px; flex-wrap:wrap; }
+  .hbadge { font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; background:var(--light); border:1px solid var(--border2); color:var(--text2); }
+  .hbadge.red { background:var(--w1-dim); border-color:var(--w1); color:var(--w1-text); }
+  .legend { display:flex; gap:18px; flex-wrap:wrap; padding:10px 40px; background:var(--light); border-bottom:1px solid var(--border); }
+  .leg { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); }
+  .ldot { width:10px; height:10px; border-radius:3px; flex-shrink:0; }
+  .tabs { display:flex; padding:0 40px; background:var(--surface); border-bottom:2px solid var(--border); position:sticky; top:0; z-index:50; box-shadow:0 2px 8px rgba(0,0,0,.07); }
+  .tb { padding:12px 20px; background:none; border:none; border-bottom:3px solid transparent; margin-bottom:-2px; color:var(--muted); font-family:var(--font); font-size:13px; font-weight:700; cursor:pointer; transition:all .15s; white-space:nowrap; }
+  .tb:hover { color:var(--text); background:var(--light); }
+  .tb.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .panel { display:none; padding:28px 40px; }
+  .panel.active { display:block; }
+  .wblock { margin-bottom:36px; }
+  .wheader { display:flex; align-items:center; gap:12px; margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid var(--border); }
+  .wbadge { font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; border-radius:20px; border:2px solid; white-space:nowrap; }
+  .wbadge.w1{color:var(--w1-text);border-color:var(--w1);background:var(--w1-dim);}
+  .wbadge.w2{color:var(--w2-text);border-color:var(--w2);background:var(--w2-dim);}
+  .wbadge.w3{color:var(--w3-text);border-color:var(--w3);background:var(--w3-dim);}
+  .wbadge.w4{color:var(--w4-text);border-color:var(--w4);background:var(--w4-dim);}
+  .wbadge.w5{color:var(--w5-text);border-color:var(--w5);background:var(--w5-dim);}
+  .wbadge.w6{color:var(--w6-text);border-color:var(--w6);background:var(--w6-dim);}
+  .wtitle { font-size:17px; font-weight:800; color:var(--text); }
+  .wdates { font-size:12px; color:var(--muted); margin-left:auto; font-weight:600; white-space:nowrap; }
+  .dgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; }
+  @media(max-width:960px){.dgrid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:640px){.dgrid{grid-template-columns:1fr 1fr;}}
+  .dcol { display:flex; flex-direction:column; gap:5px; }
+  .dhead { font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); padding:0 0 5px; border-bottom:1px solid var(--border); margin-bottom:2px; }
+  .session { background:var(--card); border:1px solid var(--border); border-left:4px solid var(--border2); border-radius:6px; padding:8px 10px 8px 11px; cursor:pointer; transition:box-shadow .15s,transform .15s; }
+  .session:hover { box-shadow:0 2px 10px rgba(0,0,0,.1); transform:translateY(-1px); }
+  .session.w1{border-left-color:var(--w1);}
+  .session.w2{border-left-color:var(--w2);}
+  .session.w3{border-left-color:var(--w3);}
+  .session.w4{border-left-color:var(--w4);}
+  .session.w5{border-left-color:var(--w5);}
+  .session.w6{border-left-color:var(--w6);}
+  .session.tskills{border-left-style:dashed;}
+  .session.texam{background:#fff8f8;border-left-color:var(--w1);}
+  .session.tsim{background:#f7fdf9;}
+  .stitle { font-size:12px; font-weight:700; color:var(--text); line-height:1.3; margin-bottom:2px; }
+  .stime { font-size:10px; color:var(--muted); font-weight:600; }
+  .stags { display:flex; flex-wrap:wrap; gap:3px; margin-top:4px; }
+  .stag { font-size:9px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 5px; border-radius:3px; background:var(--light); color:var(--muted); border:1px solid var(--border); }
+  .stag.study { background:var(--gold-bg); color:var(--gold); border-color:#e8d080; }
+  .stag.exam { background:var(--w1-dim); color:var(--w1); border-color:#f5b3ad; }
+  .stag.new { background:#d4f7e7; color:#0a5c2f; border-color:#80e4b0; }
+  .modal-overlay { display:none; position:fixed; inset:0; z-index:200; background:rgba(15,20,30,.55); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:var(--surface); border:1px solid var(--border); border-radius:12px; max-width:680px; width:100%; max-height:88vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.18); animation:mi .2s ease; }
+  @keyframes mi{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:none;}}
+  .mhead { padding:20px 22px 14px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--surface); z-index:5; border-radius:12px 12px 0 0; }
+  .mtop { display:flex; align-items:flex-start; gap:12px; }
+  .mbar { width:6px; flex-shrink:0; border-radius:3px; align-self:stretch; min-height:36px; }
+  .mbar.w1{background:var(--w1);} .mbar.w2{background:var(--w2);} .mbar.w3{background:var(--w3);}
+  .mbar.w4{background:var(--w4);} .mbar.w5{background:var(--w5);} .mbar.w6{background:var(--w6);}
+  .mwl { font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+  .mtitle { font-size:19px; font-weight:800; color:var(--text); line-height:1.2; }
+  .mmeta { font-size:12px; color:var(--muted); margin-top:3px; font-weight:600; }
+  .mclose { flex-shrink:0; background:var(--light); border:1px solid var(--border); color:var(--muted); width:28px; height:28px; border-radius:6px; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; transition:all .13s; font-weight:700; }
+  .mclose:hover{background:var(--w1-dim);border-color:var(--w1);color:var(--w1);}
+  .mbody { padding:16px 22px 22px; }
+  .msec { margin-bottom:18px; }
+  .msec:last-child{margin-bottom:0;}
+  .mstitle { font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; padding-bottom:5px; border-bottom:2px solid #f0e4a0; }
+  .sref { display:flex; gap:8px; align-items:flex-start; padding:7px 10px; margin-bottom:3px; background:var(--light); border:1px solid var(--border); border-radius:5px; cursor:pointer; transition:all .13s; }
+  .sref:hover{background:var(--gold-bg);border-color:#e8d080;}
+  .srn { font-size:10px; font-weight:800; color:var(--gold); min-width:36px; margin-top:1px; }
+  .srt { font-size:12px; color:var(--text2); line-height:1.4; }
+  .pbox { background:var(--gold-bg); border:1px solid #e8d080; border-radius:6px; padding:11px 13px; font-size:12px; color:var(--text2); line-height:1.6; }
+  .sgi { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
+  .sgp { background:var(--card); border:1px solid var(--border); border-radius:8px; overflow:hidden; transition:border-color .15s,box-shadow .15s; }
+  .sgp:hover{border-color:var(--border2);box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .sgph { display:flex; align-items:center; gap:11px; padding:12px 13px; cursor:pointer; user-select:none; background:var(--light); border-bottom:1px solid var(--border); transition:background .13s; }
+  .sgph:hover{background:#eef1f6;}
+  .sgp.open .sgph{background:var(--gold-bg);border-bottom-color:#e8d080;}
+  .pnum { font-size:17px; font-weight:800; color:var(--gold); min-width:30px; }
+  .pinfo{flex:1;}
+  .ptitle{font-size:13px;font-weight:700;color:var(--text);}
+  .pwb{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px;}
+  .mb{font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px;letter-spacing:.04em;text-transform:uppercase;}
+  .mb.w1{color:var(--w1-text);background:var(--w1-dim);}
+  .mb.w2{color:var(--w2-text);background:var(--w2-dim);}
+  .mb.w3{color:var(--w3-text);background:var(--w3-dim);}
+  .mb.w4{color:var(--w4-text);background:var(--w4-dim);}
+  .mb.w5{color:var(--w5-text);background:var(--w5-dim);}
+  .mb.w6{color:var(--w6-text);background:var(--w6-dim);}
+  .mb.new{color:#0a5c2f;background:#d4f7e7;border:1px solid #80e4b0;}
+  .pchev{color:var(--muted);font-size:11px;transition:transform .2s;}
+  .sgp.open .pchev{transform:rotate(90deg);}
+  .sgqs{display:none;padding:9px 13px;}
+  .sgp.open .sgqs{display:block;}
+  .sgq{display:flex;gap:9px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--text2);line-height:1.4;}
+  .sgq:last-child{border-bottom:none;}
+  .sqn{font-size:11px;font-weight:800;color:var(--muted);min-width:32px;flex-shrink:0;margin-top:1px;}
+  .sinput{width:100%;max-width:460px;background:var(--card);border:2px solid var(--border);border-radius:8px;padding:10px 13px;font-family:var(--font);font-size:13px;color:var(--text);outline:none;transition:border-color .2s;}
+  .sinput:focus{border-color:var(--accent);}
+  .sinput::placeholder{color:var(--muted);}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+  .pcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;}
+  .pcardtitle{font-size:13px;font-weight:800;color:var(--text);margin-bottom:9px;}
+  .pbwrap{height:6px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:5px;}
+  .pb{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent),#2e9bd0);transition:width .4s ease;}
+  .pstats{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:9px;}
+  .qcheck{display:flex;gap:7px;align-items:flex-start;padding:5px 0;border-bottom:1px solid var(--border);cursor:pointer;}
+  .qcheck:last-child{border-bottom:none;}
+  .qcheck input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;margin-top:2px;cursor:pointer;}
+  .qcheck label{font-size:11px;color:var(--text2);cursor:pointer;line-height:1.4;}
+  .qcheck.done label{color:var(--muted);text-decoration:line-through;}
+  .ostats{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:28px;}
+  .osc{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+  .osn{font-size:36px;font-weight:800;line-height:1;margin-bottom:4px;}
+  .osn.c1{color:var(--w1);} .osn.c2{color:var(--w2);} .osn.c3{color:var(--w3);} .osn.c4{color:var(--w4);} .osn.c5{color:var(--gold);}
+  .osl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+  .owgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
+  .owc{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+  .owh{padding:12px 14px 10px;display:flex;align-items:center;gap:10px;}
+  .owb{padding:0 14px 14px;}
+  .owt{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:5px;}
+  .owt:last-child{border-bottom:none;}
+  .owd{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  ::-webkit-scrollbar{width:5px;height:5px;}
+  ::-webkit-scrollbar-track{background:var(--light);}
+  ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+  @media(max-width:640px){header,.legend,.tabs,.panel{padding-left:16px;padding-right:16px;}header{flex-direction:column;}.wdates{display:none;}.tabs{overflow-x:auto;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hlogo">ICP</div>
+  <div>
+    <div class="hkicker">St John Ambulance Australia (NT) · 6-Week Program · Block A &amp; B</div>
+    <h1>ICP Course <em>Learning Map</em></h1>
+    <p>Your guide connecting 26 Study Guide parts to the full 6-week timetable. Click any session to see which questions to prepare. Track your review progress in the My Progress tab.</p>
+    <div class="hbadges">
+      <span class="hbadge red">📅 Commences 27 July 2026</span>
+      <span class="hbadge">Block A: Weeks 1–5 (27 Jul – 28 Aug)</span>
+      <span class="hbadge">Block B / RSI Capstone: Week 6 (31 Aug – 4 Sep)</span>
+      <span class="hbadge">26 Parts · 210+ Questions</span>
+    </div>
+  </div>
+</header>
+<div class="legend">
+  <div class="leg"><div class="ldot" style="background:#2563ab"></div>Theory</div>
+  <div class="leg"><div class="ldot" style="background:#6d28a0;border:2px dashed #9a5ed4;background:transparent;width:12px;height:12px"></div>Skills</div>
+  <div class="leg"><div class="ldot" style="background:#1e7e4e"></div>Simulation</div>
+  <div class="leg"><div class="ldot" style="background:#c0392b"></div>Exam</div>
+  <div class="leg"><div class="ldot" style="background:#0a9c5a"></div>New 2026 Content</div>
+  <div style="margin-left:auto;font-size:11px;color:var(--muted);font-weight:600;">Click any session → see study guide links</div>
+</div>
+<div class="tabs">
+  <button class="tb active" onclick="showTab('overview')">Overview</button>
+  <button class="tb" onclick="showTab('timetable')">Timetable</button>
+  <button class="tb" onclick="showTab('studyguide')">Study Guide</button>
+  <button class="tb" onclick="showTab('tracker')">My Progress</button>
+</div>
+
+<div id="tab-overview" class="panel active">
+  <div class="ostats">
+    <div class="osc"><div class="osn c1">6</div><div class="osl">Course Weeks</div></div>
+    <div class="osc"><div class="osn c2">26</div><div class="osl">Study Parts</div></div>
+    <div class="osc"><div class="osn c3">30</div><div class="osl">Teaching Days</div></div>
+    <div class="osc"><div class="osn c4">210+</div><div class="osl">Questions</div></div>
+    <div class="osc"><div class="osn c5">4</div><div class="osl">Formal Exams</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:9px;margin-bottom:26px;">
+    <div style="background:var(--w1-dim);border:1px solid var(--w1);border-radius:7px;padding:13px;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--w1);margin-bottom:4px;">Before each session</div><div style="font-size:12px;color:var(--text2);">Click the session in the Timetable to see which study guide questions to read before attending.</div></div>
+    <div style="background:var(--w2-dim);border:1px solid var(--w2);border-radius:7px;padding:13px;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--w2);margin-bottom:4px;">Study Guide tab</div><div style="font-size:12px;color:var(--text2);">Browse all 26 parts. Use the search bar to find any topic. New 2026 parts are highlighted.</div></div>
+    <div style="background:var(--w3-dim);border:1px solid var(--w3);border-radius:7px;padding:13px;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--w3);margin-bottom:4px;">My Progress tab</div><div style="font-size:12px;color:var(--text2);">Check off questions as you review them. Progress bars save automatically in your browser.</div></div>
+    <div style="background:var(--gold-bg);border:1px solid #e8d080;border-radius:7px;padding:13px;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:4px;">Exam dates</div><div style="font-size:12px;color:var(--text2);">Knowledge Test — Wk 1 Day 1 &nbsp;|&nbsp; Cardiac Arrest Exam — Wk 2 Day 1 &nbsp;|&nbsp; Trauma Exam — Wk 3 Day 1 &nbsp;|&nbsp; RSI ATP — Wk 6</div></div>
+  </div>
+  <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:12px;">6-Week Course Structure <span style="font-size:12px;font-weight:600;color:var(--muted);">27 Jul – 4 Sep 2026</span></div>
+  <div class="owgrid">
+    <div class="owc"><div class="owh"><span class="wbadge w1">Week 1</span><span style="font-size:13px;font-weight:700;">27–31 Jul</span></div><div class="owb">
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Course Opening &amp; Knowledge Test</div>
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Homeostasis, Acid-Base &amp; Renal</div>
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Cardiac Electrophysiology &amp; ECG</div>
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Respiratory Physiology &amp; Capnography</div>
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Cardiac Arrest Theory &amp; HPCPR</div>
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Airway Introduction &amp; Vortex</div>
+      <div class="owt"><div class="owd" style="background:var(--w1)"></div>Immunity &amp; Anaphylaxis</div>
+    </div></div>
+    <div class="owc"><div class="owh"><span class="wbadge w2">Week 2</span><span style="font-size:13px;font-weight:700;">3–7 Aug</span></div><div class="owb">
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>Cardiac Arrest Exam</div>
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>ANS &amp; Sedation Pharmacology</div>
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>Dysrhythmias — Brady &amp; Tachy</div>
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>★ Paediatric Emergencies (new part 24)</div>
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>★ Sepsis &amp; Septic Shock (new part 21)</div>
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>Cardiac Arrest Scenarios (mCPR)</div>
+      <div class="owt"><div class="owd" style="background:var(--w2)"></div>ROSC Management</div>
+    </div></div>
+    <div class="owc"><div class="owh"><span class="wbadge w3">Week 3</span><span style="font-size:13px;font-weight:700;">10–14 Aug</span></div><div class="owb">
+      <div class="owt"><div class="owd" style="background:var(--w3)"></div>Trauma Exam</div>
+      <div class="owt"><div class="owd" style="background:var(--w3)"></div>Advanced Airway — Specialist Day</div>
+      <div class="owt"><div class="owd" style="background:var(--w3)"></div>ACS, Heart Failure &amp; APO</div>
+      <div class="owt"><div class="owd" style="background:var(--w3)"></div>★ Head Injuries &amp; TBI (new part 26)</div>
+      <div class="owt"><div class="owd" style="background:var(--w3)"></div>Cardiothoracic Trauma</div>
+      <div class="owt"><div class="owd" style="background:var(--w3)"></div>★ Neurological Emergencies &amp; Stroke (new part 25)</div>
+    </div></div>
+    <div class="owc"><div class="owh"><span class="wbadge w4">Week 4</span><span style="font-size:13px;font-weight:700;">17–21 Aug</span></div><div class="owb">
+      <div class="owt"><div class="owd" style="background:var(--w4)"></div>Traumatic Haemorrhage &amp; Damage Control</div>
+      <div class="owt"><div class="owd" style="background:var(--w4)"></div>Traumatic Cardiac Arrest (HOTT)</div>
+      <div class="owt"><div class="owd" style="background:var(--w4)"></div>★ Maternal &amp; Obstetric Emergencies (new part 23)</div>
+      <div class="owt"><div class="owd" style="background:var(--w4)"></div>Toxicology &amp; NT Envenomation</div>
+      <div class="owt"><div class="owd" style="background:var(--w4)"></div>★ Sepsis Scenarios (new part 21)</div>
+      <div class="owt"><div class="owd" style="background:var(--w4)"></div>Environmental Emergencies</div>
+    </div></div>
+    <div class="owc"><div class="owh"><span class="wbadge w5">Week 5</span><span style="font-size:13px;font-weight:700;">24–28 Aug</span></div><div class="owb">
+      <div class="owt"><div class="owd" style="background:var(--w5)"></div>★ Human Factors &amp; CRM — Specialist Day (new part 22)</div>
+      <div class="owt"><div class="owd" style="background:var(--w5)"></div>Leadership &amp; Dynamic Subordination</div>
+      <div class="owt"><div class="owd" style="background:var(--w5)"></div>Stroke &amp; Neurological Revision</div>
+      <div class="owt"><div class="owd" style="background:var(--w5)"></div>Mental Health &amp; ABD</div>
+      <div class="owt"><div class="owd" style="background:var(--w5)"></div>Formative Practical Assessments</div>
+      <div class="owt"><div class="owd" style="background:var(--w5)"></div>Block A Close &amp; Theatre Prep</div>
+    </div></div>
+    <div class="owc"><div class="owh"><span class="wbadge w6">Week 6</span><span style="font-size:13px;font-weight:700;">31 Aug – 4 Sep</span></div><div class="owb">
+      <div class="owt"><div class="owd" style="background:var(--w6)"></div>Block B Opening — Theatre Review</div>
+      <div class="owt"><div class="owd" style="background:var(--w6)"></div>RSI Decision-Making &amp; Airway Workshops</div>
+      <div class="owt"><div class="owd" style="background:var(--w6)"></div>Summative Practical Assessments (SSAs)</div>
+      <div class="owt"><div class="owd" style="background:var(--w6)"></div>Case Presentations — Panel</div>
+      <div class="owt"><div class="owd" style="background:var(--w6)"></div>RSI ATP Panel Assessment</div>
+      <div class="owt"><div class="owd" style="background:var(--w6)"></div>Course Close &amp; Graduation</div>
+    </div></div>
+  </div>
+  <div style="margin-top:22px;padding:14px;background:var(--gold-bg);border:1px solid #e8d080;border-radius:7px;font-size:13px;color:var(--text2);">
+    <span style="font-weight:800;color:var(--gold);">★ New in 2026 — </span>Six new study guide parts added: <strong>Part 21 Sepsis</strong>, <strong>Part 22 Human Factors &amp; CRM</strong>, <strong>Part 23 Obstetrics &amp; Maternal Health</strong>, <strong>Part 24 Paediatric Emergencies</strong>, <strong>Part 25 Neurological Emergencies &amp; Stroke</strong>, <strong>Part 26 Traumatic Brain Injury</strong>.
+  </div>
+</div>
+
+<div id="tab-timetable" class="panel"><div id="tt"></div></div>
+<div id="tab-studyguide" class="panel">
+  <div style="margin-bottom:18px;"><input class="sinput" type="text" placeholder="🔍  Search questions across all 26 parts…" oninput="filterSG(this.value)"></div>
+  <div class="sgi" id="sgg"></div>
+</div>
+<div id="tab-tracker" class="panel"><div class="pgrid" id="pgrid"></div></div>
+<div class="modal-overlay" id="mo" onclick="cmo(event)">
+  <div class="modal">
+    <div class="mhead">
+      <div class="mtop">
+        <div class="mbar" id="mbar"></div>
+        <div style="flex:1">
+          <div class="mwl" id="mwl"></div>
+          <div class="mtitle" id="mtitle"></div>
+          <div class="mmeta" id="mmeta"></div>
+        </div>
+        <button class="mclose" onclick="cm()">✕</button>
+      </div>
+    </div>
+    <div class="mbody" id="mbody"></div>
+  </div>
+</div>
+
+<script>
+const WL={w1:'Week 1',w2:'Week 2',w3:'Week 3',w4:'Week 4',w5:'Week 5',w6:'Week 6'};
+
+const SG=[
+  {id:'p1',n:1,title:'Advanced Homeostasis',weeks:['w1'],qs:[
+    {n:'1.1',q:'Define: Mitochondria, Golgi apparatus, Lysosome, Ribosome, Cytoplasm, Cytosol, Organelles'},
+    {n:'1.2',q:'What is the plasma membrane?'},
+    {n:'1.3',q:'Discuss membrane transport mechanisms'},
+    {n:'1.4',q:'Discuss the Sodium/Potassium pump and its function'},
+    {n:'1.5',q:'Explain the differences between endocytosis and exocytosis'},
+  ]},
+  {id:'p2',n:2,title:'Cellular Respiration & Metabolism',weeks:['w1'],qs:[
+    {n:'2.1',q:'Explain the process of glycolysis'},
+    {n:'2.2',q:'In the context of the hypoxic patient, explain how calcium is harmful'},
+    {n:'2.3',q:'List the by-products of anaerobic metabolism'},
+    {n:'2.4',q:'Explain the difference between aerobic and anaerobic metabolism'},
+    {n:'2.5',q:'What are the three energy sources of the body?'},
+    {n:'2.6',q:'How does decreased ATP production affect the Na+/K+ pump in the hypoxic patient?'},
+  ]},
+  {id:'p3',n:3,title:'Acid Base Balance',weeks:['w1'],qs:[
+    {n:'3.1',q:'In a septic shock patient, explain how the three buffer systems are affected'},
+    {n:'3.2',q:'How does the body regulate pH? How does each system work?'},
+    {n:'3.3',q:'Difference between DKA and HHTS?'},
+    {n:'3.4',q:'Role of lactic acid in disease'},
+    {n:'3.5',q:'Explain the disequilibrium equation and role of CO₂'},
+    {n:'3.6',q:'List causes of metabolic/respiratory acidosis and alkalosis'},
+    {n:'3.7',q:'How is O₂ and CO₂ transported around the body?'},
+    {n:'3.8',q:'Explain the correlation between EtCO₂ values and cardiac arrest'},
+    {n:'3.9',q:'Explain metabolic acidosis in hyperkalaemia and how sodium bicarbonate treats this'},
+  ]},
+  {id:'p4',n:4,title:'Fluids & Electrolytes',weeks:['w1','w2'],qs:[
+    {n:'4.1',q:'What are the different fluid compartments present in the body?'},
+    {n:'4.2',q:"Explain the mechanism of action of Hartmann's solution"},
+    {n:'4.3',q:'How does dehydration occur?'},
+    {n:'4.4',q:'Explain how Anti Diuretic Hormone affects hydration'},
+    {n:'4.5',q:'Explain the difference between hyponatraemia and hypernatraemia'},
+    {n:'4.6',q:'Explain how the RAAS system maintains fluid balance'},
+    {n:'4.7',q:'Explain the adverse effects of crystalloids in trauma'},
+    {n:'4.8',q:'Name the different electrolytes and their roles'},
+  ]},
+  {id:'p5',n:5,title:'Cellular Immunity',weeks:['w1','w2'],qs:[
+    {n:'5.1',q:'Explain the lymphatic system'},
+    {n:'5.2',q:'Explain the different types of immunity'},
+    {n:'5.3',q:'Explain the pathophysiology of anaphylaxis'},
+    {n:'5.4',q:'Explain the pathophysiology of asthma and COPD'},
+    {n:'5.5',q:'Explain the pathophysiology of type 1 diabetes mellitus'},
+    {n:'5.7',q:'What medications can cause anaphylaxis?'},
+    {n:'5.8',q:'Explain the process of inflammatory response'},
+    {n:'5.9',q:'List the different chemical mediators and their signs/symptoms in anaphylaxis'},
+  ]},
+  {id:'p6',n:6,title:'Cardiology',weeks:['w1'],qs:[
+    {n:'6.1',q:'Explain pacemaker cells'},
+    {n:'6.2',q:'Explain cardiac action potential'},
+    {n:'6.3',q:'Explain actin, myosin, tropomyosin and troponin'},
+    {n:'6.4',q:'What are the 5 phases of the cardiac action potential? What happens during each?'},
+    {n:'6.5',q:'What are the absolute and relative refractory periods?'},
+    {n:'6.6',q:'What is the role of calcium in the myocardium?'},
+    {n:'6.7',q:'Discuss nervous system control of the heart. What differs between atria and ventricles?'},
+    {n:'6.8',q:'Explain the role of pacing in bradycardia'},
+    {n:'6.9',q:'Explain cardiac muscle contraction'},
+  ]},
+  {id:'p7',n:7,title:'Acute MI & Cardiogenic Shock',weeks:['w1','w3'],qs:[
+    {n:'7.1',q:'What are the main coronary arteries and what myocardium do they perfuse?'},
+    {n:'7.2',q:'What is collateral circulation?'},
+    {n:'7.3',q:'Explain coronary circulation'},
+    {n:'7.4',q:'List the cardiovascular risk factors'},
+    {n:'7.5',q:'What is atherosclerosis and how does it compare to arteriosclerosis?'},
+    {n:'7.6',q:'Explain the pathophysiology of a right ventricular infarct'},
+    {n:'7.7',q:'Explain the pathophysiology of a posterior infarct'},
+    {n:'7.8',q:'Explain the role of GTN in ACS at the cellular level'},
+    {n:'7.9',q:'What is cardiogenic shock? What causes it?'},
+    {n:'7.10',q:'Explain the treatment for cardiogenic shock'},
+    {n:'7.11',q:'Why is JVD observed in cardiogenic shock?'},
+    {n:'7.12',q:'Explain the difference between adrenaline boluses and infusion in cardiogenic shock'},
+    {n:'7.13',q:'In coronary artery occlusion, explain cell death and what increased Na+ and Ca2+ in the ICF cause'},
+    {n:'7.14',q:'Why could an inferior STEMI present with no reciprocal changes?'},
+  ]},
+  {id:'p8',n:8,title:'Heart Failure, APO & Hypertension',weeks:['w1','w3'],qs:[
+    {n:'8.1',q:'Explain the difference between primary and secondary hypertension'},
+    {n:'8.2',q:'Explain a hypertensive emergency'},
+    {n:'8.3',q:'How does renin, aldosterone and ADH lower blood pressure?'},
+    {n:'8.4',q:'Explain the difference between left and right sided heart failure'},
+    {n:'8.5',q:'Compare cardiogenic vs non-cardiogenic pulmonary oedema'},
+    {n:'8.6',q:'How does IPPV benefit patients with APO?'},
+    {n:'8.7',q:'Explain how diuretics assist in the management of ACPO'},
+    {n:'8.8',q:'Explain nephrogenic pulmonary oedema in the presence of missed dialysis'},
+    {n:'8.9',q:'What are the treatment options for nephrogenic pulmonary oedema?'},
+    {n:'8.10',q:'How is the RAAS affected in ACPO?'},
+  ]},
+  {id:'p9',n:9,title:'Crush Injury & Electrolyte Imbalance',weeks:['w1','w4'],qs:[
+    {n:'9.1',q:'What are the causes of hyperkalaemia?'},
+    {n:'9.2',q:'How do Salbutamol, Calcium and Sodium Bicarbonate affect hyperkalaemia?'},
+    {n:'9.3',q:'Explain the ECG changes in hyperkalaemia'},
+    {n:'9.4',q:'What are the adverse effects of sodium bicarbonate and calcium gluconate?'},
+    {n:'9.5',q:'What are the arterial and venous mechanisms of crush injury?'},
+    {n:'9.6',q:'What are the complications of crush injury?'},
+    {n:'9.7',q:'What is the management of crush injury?'},
+    {n:'9.8',q:'Explain how missed dialysis can cause hyperkalaemia'},
+    {n:'9.9',q:'What is BRASH Syndrome?'},
+    {n:'9.10',q:'What medications can cause hyperkalaemia?'},
+    {n:'9.11',q:'Clinical causes of hypokalaemia?'},
+    {n:'9.12',q:'Management of hypokalaemia?'},
+    {n:'9.13',q:'ECG changes in hypokalaemia?'},
+    {n:'9.14',q:'Explain the difference between loop diuretics and potassium-sparing diuretics'},
+  ]},
+  {id:'p10',n:10,title:'Respiratory Physiology',weeks:['w1'],qs:[
+    {n:'10.1',q:'What is the function and main anatomy of the respiratory system?'},
+    {n:'10.2',q:'Explain the different stages of ventilation'},
+    {n:'10.3',q:'How does the brain control respiration?'},
+    {n:'10.4',q:'Explain the stages of ventilation'},
+    {n:'10.5',q:'What is external and internal respiration?'},
+    {n:'10.6',q:'Explain the difference between left and rightward shift on the oxyhaemoglobin dissociation curve'},
+    {n:'10.7',q:'How could a tension pneumothorax occur in the asthmatic patient?'},
+    {n:'10.8',q:'Difference between chemoreceptors and baroreceptors?'},
+  ]},
+  {id:'p11',n:11,title:'12-Lead ECG Interpretation',weeks:['w1','w2'],qs:[
+    {n:'11.1',q:'Right bundle branch block — rate, regularity, P waves, PR, RR, QRS, pacemaker origin'},
+    {n:'11.2',q:'Left bundle branch block — same criteria'},
+    {n:'11.3',q:'Right ventricular hypertrophy'},
+    {n:'11.4',q:'Left ventricular hypertrophy'},
+    {n:'11.5',q:'Pericarditis — characteristics and STEMI differentiation'},
+    {n:'11.6',q:'Benign early repolarisation'},
+    {n:'11.7',q:'Supraventricular Tachycardia — characteristics and management'},
+    {n:'11.8',q:'Ventricular Tachycardia — characteristics and management'},
+    {n:'11.9',q:'Torsades de Pointes — characteristics, causes, management'},
+    {n:'11.10',q:'Third degree AV block'},
+    {n:'11.11',q:'Brugada Syndrome'},
+    {n:'11.12',q:'Wolff-Parkinson-White Syndrome — characteristics and drug contraindications'},
+    {n:'11.13',q:'Hypertrophic obstructive cardiomyopathy'},
+    {n:'11.14',q:'Junctional bradycardia — characteristics and management'},
+  ]},
+  {id:'p12',n:12,title:'Autonomic Nervous System',weeks:['w1','w2'],qs:[
+    {n:'12.1',q:'Explain the different divisions of the autonomic nervous system'},
+    {n:'12.2',q:'Explain the differences between the SNS and PNS'},
+    {n:'12.3',q:'Explain the pathophysiology of mouse spider venom'},
+    {n:'12.4',q:'Explain the pathophysiology of organophosphate poisoning'},
+    {n:'12.5',q:'How is noradrenaline regulated in the body?'},
+    {n:'12.6',q:'How do atropine, adrenaline and noradrenaline affect the cardiac system?'},
+  ]},
+  {id:'p13',n:13,title:'Anti-dysrhythmic Medications',weeks:['w1','w2'],qs:[
+    {n:'13.1',q:'What is the Vaughan-Williams classification? Where do SJANT medications fit?'},
+    {n:'13.2',q:'What is the mechanism of action of amiodarone?'},
+    {n:'13.3',q:'What are the adverse effects of amiodarone (short and long term)?'},
+    {n:'13.4',q:'What is the mechanism of action of lignocaine?'},
+    {n:'13.5',q:'What are the adverse effects of lignocaine? Explain why they occur.'},
+    {n:'13.6',q:'What are the adverse effects of adrenaline? Explain how they occur.'},
+    {n:'13.7',q:'What are the adverse effects of atropine? Explain how they occur.'},
+    {n:'13.8',q:'What is the mechanism of action of magnesium?'},
+  ]},
+  {id:'p14',n:14,title:'Urinary System',weeks:['w1'],qs:[
+    {n:'14.1',q:'Explain the functions of the renal system'},
+    {n:'14.2',q:'How is urine produced?'},
+    {n:'14.3',q:'Explain diabetes insipidus'},
+    {n:'14.4',q:'Explain the pathophysiology of chronic renal failure'},
+    {n:'14.5',q:'How does dialysis work?'},
+    {n:'14.6',q:'List complications of dialysis'},
+    {n:'14.7',q:'Explain the factors that affect glomerular filtration rate'},
+  ]},
+  {id:'p15',n:15,title:'Environmental Emergencies',weeks:['w1','w5'],qs:[
+    {n:'15.1',q:"Explain Boyle's, Dalton's and Henry's Laws. How do these affect divers?"},
+    {n:'15.2',q:'What is decompression illness?'},
+    {n:'15.3',q:'List the stages of drowning'},
+    {n:'15.4',q:'Explain the complications of salt water vs fresh water pulmonary aspiration'},
+    {n:'15.5',q:'Explain how febrile convulsions occur in children'},
+    {n:'15.6',q:'Explain exertional hyperthermia and its complications'},
+    {n:'15.7',q:'Explain how hypothermia can cause bradycardia'},
+    {n:'15.8',q:'How are burns classified?'},
+    {n:'15.9',q:'How do you measure the percentage of burns?'},
+    {n:'15.10',q:'How can IV fluids in burns affect airways?'},
+  ]},
+  {id:'p16',n:16,title:'Toxicology',weeks:['w1','w4'],qs:[
+    {n:'16.1',q:'Explain the different classes of anti-depressants and how they work'},
+    {n:'16.2',q:'What is the mechanism of action for TCA toxicity in overdose?'},
+    {n:'16.3',q:'What are the cardiotoxic effects of TCAs in overdose? What medications manage these patients?'},
+    {n:'16.4',q:'Explain the different types of snake envenomation in the NT'},
+    {n:'16.5',q:'Explain the different types of marine envenomation in the NT'},
+    {n:'16.6',q:'What are the effects of an adrenaline infusion in a quetiapine overdose?'},
+    {n:'16.7',q:'What is the toxic dose of TCAs in adults and paediatrics?'},
+    {n:'16.8',q:'Explain serotonin syndrome'},
+  ]},
+  {id:'p17',n:17,title:'Airway Vortex',weeks:['w1','w3','w6'],qs:[
+    {n:'17.1',q:'What are the airway devices in the vortex and their associated lifelines?'},
+    {n:'17.2',q:'Explain the different CICO states'},
+    {n:'17.3',q:'What are the recommendations for surgical cricothyroidotomy? How do they change for small children?'},
+    {n:'17.4',q:'What would be the "best attempt" for a BVM?'},
+    {n:'17.5',q:'Explain why airway ramping is important and what is the goal?'},
+    {n:'17.6',q:'Explain how each 30-second drill assists with laryngoscopy'},
+    {n:'17.7',q:'Explain the differences between traditional laryngoscopy and video laryngoscopy'},
+    {n:'17.8',q:'Explain PEEP'},
+  ]},
+  {id:'p18',n:18,title:'Trauma',weeks:['w2','w3','w4'],qs:[
+    {n:'18.1',q:'Explain shock index'},
+    {n:'18.2',q:'How does an EtCO\u2082 value of <25mmHg signify hypovolaemia?'},
+    {n:'18.3',q:'What is the lethal diamond of death?'},
+    {n:'18.4',q:'How do packed red blood cells affect patients with traumatic haemorrhage?'},
+    {n:'18.5',q:'Explain the difference between needle thoracostomy, finger thoracostomy, pericardiocentesis and thoracotomy'},
+    {n:'18.6',q:'How does a chest seal work?'},
+    {n:'18.7',q:'Explain neurogenic shock'},
+    {n:'18.8',q:'How does Tranexamic Acid work?'},
+    {n:'18.9',q:'What is the mechanism of action of ketamine?'},
+    {n:'18.10',q:'What are the adverse effects of ketamine?'},
+    {n:'18.11',q:'How can ketamine affect the cardiac system?'},
+    {n:'18.12',q:'Why is hypothermia dangerous in trauma?'},
+    {n:'18.13',q:'What special considerations apply to paediatrics experiencing trauma?'},
+    {n:'18.14',q:'What special considerations apply to obstetric patients experiencing trauma?'},
+  ]},
+  {id:'p19',n:19,title:'Cardiac Arrest',weeks:['w1','w2'],qs:[
+    {n:'19.1',q:"Explain how each of the 4H's and 4T's can be managed in cardiac arrest"},
+    {n:'19.2',q:'Explain how EtCO\u2082 is useful in cardiac arrest, advanced airway and CPR quality'},
+    {n:'19.3',q:'Differentiate between true and pseudo PEA'},
+    {n:'19.4',q:'What are the priorities in traumatic cardiac arrest?'},
+    {n:'19.5',q:'Explain the differences between LMA and ETT use in cardiac arrest'},
+    {n:'19.6',q:'Explain SALAD'},
+    {n:'19.7',q:'What are the benefits of mechanical CPR?'},
+    {n:'19.8',q:'What medication can be given to cease increased conscious state in mechanical CPR?'},
+  ]},
+  {id:'p20',n:20,title:'ROSC Management',weeks:['w1','w2'],qs:[
+    {n:'20.1',q:'What physiological targets are aimed for in ROSC management?'},
+    {n:'20.2',q:'Why is a rise in EtCO\u2082 observed before ROSC?'},
+    {n:'20.3',q:'How is hyperoxia harmful in the ventilated patient?'},
+    {n:'20.4',q:'How does high tidal volume ventilation affect patients?'},
+    {n:'20.5',q:'Explain why adrenaline boluses are administered in the early stages of ROSC'},
+    {n:'20.6',q:'Explain how a fentanyl/midazolam infusion works in post-intubation sedation'},
+    {n:'20.7',q:'Explain how a ketamine infusion works in post-intubation sedation'},
+    {n:'20.8',q:'Explain how a morphine/midazolam infusion works in post-intubation sedation'},
+    {n:'20.9',q:'What benefit does a gastric tube add to a ventilated patient? What are the different insertion methods?'},
+    {n:'20.10',q:'How can you manage ROSC in a traumatic cardiac arrest?'},
+  ]},
+  {id:'p21',n:21,title:'Sepsis & Septic Shock',weeks:['w2','w4'],isNew:true,qs:[
+    {n:'21.1',q:'Define sepsis using the Sepsis-3 criteria. How does this differ from the older SIRS-based definition?'},
+    {n:'21.2',q:'Explain the pathophysiology of sepsis from initial infection through to multi-organ failure — include cytokines, endothelial dysfunction, and coagulation activation'},
+    {n:'21.3',q:'What is the clinical definition of septic shock? What differentiates it from sepsis?'},
+    {n:'21.4',q:'Explain the haemodynamic profile of septic shock (warm vs cold phenotype). How does it differ from cardiogenic shock?'},
+    {n:'21.5',q:'What is lactic acidosis in sepsis? What does a rising lactate tell you about patient trajectory?'},
+    {n:'21.6',q:'What is the qSOFA score and how is it applied prehospital?'},
+    {n:'21.7',q:'What is the first-line vasopressor in septic shock? Explain its mechanism of action, preparation and titration.'},
+    {n:'21.8',q:'Explain fluid resuscitation targets in septic shock — how much, how fast, and signs of fluid responsiveness?'},
+    {n:'21.9',q:'What is septic cardiomyopathy and how does it alter vasopressor selection?'},
+    {n:'21.10',q:'Explain the MAP target in septic shock and how it is calculated from NIBP. Why does MAP <65mmHg predict poor outcomes?'},
+    {n:'21.11',q:'What are the NT-specific sepsis considerations including common organism types and community risk factors?'},
+    {n:'21.12',q:'Explain the role of antibiotic timing in sepsis and the evidence for early administration. What are the prehospital limitations?'},
+  ]},
+  {id:'p22',n:22,title:'Human Factors & CRM',weeks:['w5'],isNew:true,qs:[
+    {n:'22.1',q:"Explain Endsley's three-level situational awareness model. Give a prehospital example of failure at each level."},
+    {n:'22.2',q:'What are the common SA failure modes? Define fixation, channel narrowing, cognitive overload, and complacency.'},
+    {n:'22.3',q:'What is the HeliNOTS framework? Name the five categories and describe one observable behavioural marker for each.'},
+    {n:'22.4',q:'Explain crew resource management (CRM) and its origins in aviation. How does it apply to ICP practice?'},
+    {n:'22.5',q:'What is closed-loop communication? Provide an example in drug administration during cardiac arrest.'},
+    {n:'22.6',q:'Explain the authority gradient problem in prehospital medicine. How can it contribute to adverse events?'},
+    {n:'22.7',q:'Describe the Two-Challenge Rule and the PACE model. When would you use each?'},
+    {n:'22.8',q:'What are cognitive biases in clinical decision-making? Define anchoring, availability bias, confirmation bias, and premature closure with ICP examples.'},
+    {n:'22.9',q:'How does fatigue affect ICP performance? What specific cognitive functions are impaired first?'},
+    {n:'22.10',q:'Explain the role of checklists in reducing cognitive error. Why is using a checklist not a sign of incompetence?'},
+    {n:'22.11',q:'What is psychological safety in a clinical team? What ICP behaviours create or undermine it?'},
+    {n:'22.12',q:'Explain dynamic subordination. Give an example of when an ICP should defer to a senior clinician and when they must assert clinical authority.'},
+  ]},
+  {id:'p23',n:23,title:'Obstetrics & Maternal Health',weeks:['w4'],isNew:true,qs:[
+    {n:'23.1',q:'Describe the major physiological changes of pregnancy affecting the airway, cardiovascular system, and respiratory system. How does each change your clinical approach?'},
+    {n:'23.2',q:'Explain aortocaval compression — mechanism, gestation onset, clinical consequence, and management including during CPR.'},
+    {n:'23.3',q:'What is eclampsia? Describe its pathophysiology, diagnostic criteria, and differentiation from other seizure causes in pregnancy.'},
+    {n:'23.4',q:'Explain the pharmacology of magnesium sulphate in eclampsia: mechanism, loading dose, administration rate, toxicity signs, and antidote.'},
+    {n:'23.5',q:'Why must the magnesium sulphate loading dose be given over a minimum of 15 minutes? What is the risk of faster administration?'},
+    {n:'23.6',q:'Define postpartum haemorrhage. Explain the TONE/TISSUE/TRAUMA/THROMBIN framework and describe first-line management of uterine atony.'},
+    {n:'23.7',q:'Explain the difference between placenta praevia and placental abruption in terms of presentation and management'},
+    {n:'23.8',q:'Describe shoulder dystocia. Explain the HELPERR mnemonic in sequence and identify the most common prehospital error.'},
+    {n:'23.9',q:'Explain the APGAR scoring system. What is your management for an APGAR score of 3 at 1 minute?'},
+    {n:'23.10',q:'Describe the physiological basis for the difficulty of obstetric RSI compared to standard RSI. What equipment modifications are required?'},
+    {n:'23.11',q:'What are the cultural safety obligations in NT for obstetric emergencies involving Aboriginal and Torres Strait Islander patients?'},
+    {n:'23.12',q:'Explain the management of ectopic pregnancy presenting with haemodynamic compromise. What is the ICP role?'},
+  ]},
+  {id:'p24',n:24,title:'Paediatric Emergencies',weeks:['w2'],isNew:true,qs:[
+    {n:'24.1',q:'Explain the Paediatric Assessment Triangle (PAT). What clinical impression does each component generate?'},
+    {n:'24.2',q:'Describe the key physiological differences between infants and adults across airway, breathing, and circulation. How does each difference change management?'},
+    {n:'24.3',q:'Why is bradycardia a pre-arrest finding in infants? Explain the cardiac output formula and why this differs from adult physiology.'},
+    {n:'24.4',q:'Describe compensated shock in a child. Why can blood pressure be normal despite significant hypovolaemia?'},
+    {n:'24.5',q:'Explain the Broselow tape and how it is applied. What information does it provide?'},
+    {n:'24.6',q:'Calculate the ETT size (uncuffed and cuffed) and insertion depth for children aged 2, 5, and 8 years.'},
+    {n:'24.7',q:'What are the paediatric defibrillation energy levels? How do they differ from adult dosing?'},
+    {n:'24.8',q:'Describe paediatric adrenaline dosing in cardiac arrest — drug, dose, concentration, route, and timing.'},
+    {n:'24.9',q:'Describe the approach to severe paediatric asthma including drug escalation and the indications for RSI.'},
+    {n:'24.10',q:'What are the clinical features of non-accidental injury (NAI)? What is the NT mandatory reporting obligation for ICP practitioners?'},
+    {n:'24.11',q:'Explain the differences in newborn resuscitation compared to older paediatric patients, including NeopuffTM settings and compression ratios.'},
+    {n:'24.12',q:'What are the NT-specific paediatric health considerations including RSV, Group A Streptococcal disease, and anaemia?'},
+  ]},
+  {id:'p25',n:25,title:'Neurological Emergencies & Stroke',weeks:['w3','w5'],isNew:true,qs:[
+    {n:'25.1',q:'Explain the ROSIER score. Which item must always be checked BEFORE scoring and why?'},
+    {n:'25.2',q:'Differentiate ischaemic stroke from haemorrhagic stroke in terms of pathophysiology, clinical features, and prehospital management differences.'},
+    {n:'25.3',q:'What is the concept of "Last Known Well" and why is it more clinically important than time of discovery?'},
+    {n:'25.4',q:'What are stroke mimics? List the most common and explain which is the most dangerous to miss.'},
+    {n:'25.5',q:'Describe the Stroke Alert pre-notification — what 6 pieces of information must be communicated and why?'},
+    {n:'25.6',q:'Explain the pathophysiology and clinical presentation of subarachnoid haemorrhage (SAH). Why is sedation cautioned in SAH?'},
+    {n:'25.7',q:'Explain the prehospital BP management differences between ischaemic and haemorrhagic stroke. What is the physiological rationale for each?'},
+    {n:'25.8',q:'Define status epilepticus. Describe the pharmacological escalation pathway from first-line to second-line treatment.'},
+    {n:"25.9",q:"Explain Todd's palsy and how it may mimic stroke on the ROSIER score."},
+    {n:'25.10',q:'What are the time targets for stroke management (LKW to CT, LKW to needle, LKW to groin) and what is the ICP role in achieving them?'},
+    {n:'25.11',q:'Explain meningococcal disease — clinical features, prehospital management, and mandatory notification obligations in the NT.'},
+  ]},
+  {id:'p26',n:26,title:'Traumatic Brain Injury',weeks:['w3'],isNew:true,qs:[
+    {n:'26.1',q:'Explain the Monro-Kellie doctrine and its implications for managing expanding intracranial lesions.'},
+    {n:'26.2',q:'Define cerebral perfusion pressure (CPP). Calculate the MAP required to achieve CPP \u226560mmHg if ICP is estimated at 25mmHg.'},
+    {n:'26.3',q:'What are the 6 modifiable secondary brain injury factors? For each, state the mechanism of harm and the ICP-level intervention.'},
+    {n:'26.4',q:"Explain Cushing's triad — its components, the physiological mechanism, and why you must NOT treat the hypertension."},
+    {n:'26.5',q:'Why is hyperventilation harmful in TBI? When is brief hyperventilation acceptable and what EtCO\u2082 target applies?'},
+    {n:'26.6',q:'What are the ICP-level criteria for RSI in the TBI patient? Why is GCS alone an insufficient indicator?'},
+    {n:'26.7',q:'Explain the current evidence on ketamine use in TBI. Under what conditions is ketamine acceptable? What is the historical concern?'},
+    {n:'26.8',q:'Describe the post-intubation management checklist for a TBI patient — state each target (SpO\u2082, EtCO\u2082, MAP, temperature, BGL) and the intervention for each.'},
+    {n:'26.9',q:'Explain how a unilateral fixed dilated pupil indicates uncal herniation. Which side is the lesion?'},
+    {n:'26.10',q:'Describe the conflict between permissive hypotension and TBI management. What MAP compromise is applied when both haemorrhagic shock and TBI are present?'},
+  ]},
+];
+
+const weeks=[
+  {wk:'w1',label:'Foundations — Physiology, Cardiology & Airway',dates:'Mon 27 Jul – Fri 31 Jul 2026',days:[
+    {day:'Mon 27 Jul',ss:[
+      {t:'Course Opening & NT ICP Role',time:'0800–0900',type:'theory',sg:[]},
+      {t:'Knowledge Test',time:'0900–1000',type:'exam',sg:[{p:'All Parts 1–20',qs:['Baseline assessment covering all study guide parts']}]},
+      {t:'Advanced Homeostasis & Cellular Biology',time:'1000–1130',type:'theory',sg:[{p:'Parts 1 & 2',qs:['1.1–1.5 Cell organelles, plasma membrane, transport mechanisms','2.1–2.6 Glycolysis, aerobic/anaerobic metabolism, ATP and Na+/K+ pump']}]},
+      {t:'Acid-Base Balance',time:'1230–1400',type:'theory',sg:[{p:'Part 3',qs:['3.1–3.9 Buffer systems, pH regulation, DKA vs HHTS, lactic acid, EtCO2 and cardiac arrest, NaHCO3 in hyperkalaemia']}]},
+      {t:'Fluids, Electrolytes & Renal Physiology',time:'1400–1600',type:'theory',sg:[{p:'Parts 4 & 14',qs:["4.1–4.8 Fluid compartments, Hartmann's, RAAS, crystalloid adverse effects",'14.1–14.7 Renal functions, urine production, dialysis, GFR, chronic renal failure']}]},
+    ]},
+    {day:'Tue 28 Jul',ss:[
+      {t:'Cardiac Electrophysiology & ECG Part 1',time:'0800–1000',type:'theory',sg:[{p:'Parts 6 & 11',qs:['6.1–6.9 Action potential phases, pacemaker cells, calcium in myocardium, cardiac contraction','11.1–11.14 All 14 ECG rhythm descriptions in full detail']}]},
+      {t:'Skills 1 — ECG Monitoring & Lead Placement',time:'1000–1130',type:'skills',sg:[{p:'Part 11',qs:['11.1–11.14 Rhythm recognition applied to clinical practice']}]},
+      {t:'Cardiac Arrest Theory & HPCPR',time:'1230–1400',type:'theory',sg:[{p:'Parts 19 & 13',qs:["19.1–19.8 4H/4T management, EtCO2 in arrest, true vs pseudo PEA, SALAD, mCPR",'13.2 Amiodarone mechanism','13.4 Lignocaine mechanism','13.6 Adrenaline adverse effects']}]},
+      {t:'LUCAS mCPR',time:'1400–1500',type:'theory',sg:[{p:'Part 19',qs:['19.7 Benefits of mechanical CPR','19.8 Medication for increased conscious state in mCPR']}]},
+      {t:'EtCO₂ — Clinical Applications',time:'1500–1600',type:'theory',sg:[{p:'Parts 3, 18, 19 & 20',qs:['3.8 EtCO2 and cardiac arrest','18.2 EtCO2 <25mmHg signifying hypovolaemia','19.2 EtCO2 in arrest/airway/CPR quality','20.2 EtCO2 rise before ROSC']}]},
+    ]},
+    {day:'Wed 29 Jul',ss:[
+      {t:'Respiratory Physiology, Asthma & Capnography',time:'0800–1000',type:'theory',sg:[{p:'Part 10',qs:['10.1–10.8 All respiratory physiology questions including oxyhaemoglobin dissociation curve and tension pneumothorax in asthma']}]},
+      {t:'Skills 2 — CPAP · PEEP · Syringe Driver · IO · Capnography',time:'1000–1130',type:'skills',sg:[{p:'Parts 10 & 17',qs:['17.8 Explain PEEP','10.2 Stages of ventilation']}]},
+      {t:'VORTEX & Basic Airway Management',time:'1230–1400',type:'theory',sg:[{p:'Part 17',qs:['17.1 Airway devices and lifelines','17.2 CICO states','17.3 Surgical cricothyroidotomy','17.4 Best attempt for BVM']}]},
+      {t:'SALAD',time:'1400–1500',type:'theory',sg:[{p:'Parts 17 & 19',qs:['17.6 30-second drills for laryngoscopy','19.6 SALAD explanation']}]},
+      {t:'ROSC Management Theory',time:'1500–1600',type:'theory',sg:[{p:'Part 20',qs:['20.1–20.10 All ROSC management questions']}]},
+    ]},
+    {day:'Thu 30 Jul',ss:[
+      {t:'Acute MI, ACS & Cardiogenic Shock',time:'0800–1000',type:'theory',sg:[{p:'Part 7',qs:['7.1–7.14 Coronary arteries, STEMI, RV infarct, posterior infarct, GTN mechanism, cardiogenic shock, adrenaline bolus vs infusion']}]},
+      {t:'Heart Failure, APO & Hypertension',time:'1000–1130',type:'theory',sg:[{p:'Part 8',qs:['8.1–8.10 Primary vs secondary hypertension, left vs right HF, cardiogenic vs non-cardiogenic APO, IPPV in APO, diuretics, nephrogenic APO']}]},
+      {t:'Crush Injury & Electrolyte Imbalance',time:'1230–1400',type:'theory',sg:[{p:'Parts 9 & 14',qs:['9.1–9.14 Hyperkalaemia ECG and management, BRASH syndrome, crush injury mechanism and management','14.4 Chronic renal failure pathophysiology']}]},
+      {t:'Skills 3 — Ext Pacing · Cardioversion · ADR/NOR Infusion',time:'1400–1600',type:'skills',sg:[{p:'Parts 7, 12 & 13',qs:['7.10 Cardiogenic shock treatment','7.12 Adrenaline bolus vs infusion','12.6 Atropine/adrenaline/noradrenaline cardiac effects']}]},
+    ]},
+    {day:'Fri 31 Jul',ss:[
+      {t:'Cellular Immunity & Anaphylaxis',time:'0800–1000',type:'theory',sg:[{p:'Part 5',qs:['5.1–5.9 All immunity questions including anaphylaxis pathophysiology, chemical mediators, inflammatory response']}]},
+      {t:'ANS & Anti-dysrhythmic Pharmacology',time:'1000–1130',type:'theory',sg:[{p:'Parts 12 & 13',qs:['12.1–12.6 ANS divisions, SNS vs PNS, noradrenaline regulation, mouse spider/organophosphate toxidrome','13.1–13.8 Vaughan-Williams classification, all drug mechanisms and adverse effects']}]},
+      {t:'Medical Cardiac Arrest Scenarios (Intro)',time:'1230–1400',type:'sim',sg:[{p:'Part 19',qs:['19.1–19.8 All cardiac arrest questions']}]},
+      {t:'ROSC Scenarios',time:'1400–1530',type:'sim',sg:[{p:'Part 20',qs:['20.1–20.10 All ROSC management questions']}]},
+      {t:'Resuscitate Before Intubate',time:'1530–1600',type:'theory',sg:[{p:'Parts 19 & 20',qs:['19.3 True vs pseudo PEA','20.5 Adrenaline in early ROSC']}]},
+    ]},
+  ]},
+  {wk:'w2',label:'Pharmacology, Dysrhythmias & Paediatrics',dates:'Mon 3 Aug – Fri 7 Aug 2026',days:[
+    {day:'Mon 3 Aug',ss:[
+      {t:'Cardiac Arrest Exam',time:'0800–0930',type:'exam',sg:[{p:'Parts 19, 13 & 3',qs:['19.1–19.8 All cardiac arrest questions','13.2 Amiodarone','13.4 Lignocaine','3.8 EtCO2 and cardiac arrest']}]},
+      {t:'Sedation Pharmacology',time:'0930–1200',type:'theory',sg:[{p:'Parts 20 & 12',qs:['20.6 Fentanyl/midazolam infusion','20.7 Ketamine infusion','20.8 Morphine/midazolam infusion','12.1 ANS divisions']}]},
+      {t:'Dysrhythmias — Bradycardias',time:'1230–1400',type:'theory',sg:[{p:'Parts 6, 11 & 13',qs:['6.8 Role of pacing in bradycardia','11.10 Third degree AV block','11.14 Junctional bradycardia']}]},
+      {t:'Skills 4 — Transcutaneous Pacing',time:'1400–1530',type:'skills',sg:[{p:'Parts 6 & 11',qs:['6.8 Pacing in bradycardia','11.10 Complete heart block']}]},
+      {t:'Procedural Sedation',time:'1530–1600',type:'theory',sg:[{p:'Part 20',qs:['20.6–20.8 Post-intubation infusion options']}]},
+    ]},
+    {day:'Tue 4 Aug',ss:[
+      {t:'Dysrhythmias — Tachycardias',time:'0800–1000',type:'theory',sg:[{p:'Parts 11 & 13',qs:['11.7 SVT','11.8 VT','11.9 Torsades de Pointes','11.12 WPW Syndrome — and drug contraindications','13.2 Amiodarone in VT']}]},
+      {t:'Skills 5 — Synchronised Cardioversion',time:'1000–1100',type:'skills',sg:[{p:'Part 11',qs:['11.8 VT characteristics','11.9 Torsades']}]},
+      {t:'Toxicology & NT Envenomation',time:'1100–1200',type:'theory',sg:[{p:'Parts 16 & 12',qs:['16.1–16.8 TCA toxicity, serotonin syndrome, NT snake and marine envenomation, quetiapine','12.4 Organophosphate poisoning pathophysiology']}]},
+      {t:'Renal & Electrolyte Disorders',time:'1230–1400',type:'theory',sg:[{p:'Parts 9 & 14',qs:['9.1–9.14 All hyperkalaemia, BRASH syndrome, crush injury, hypokalaemia questions','14.1–14.7 All renal system questions']}]},
+      {t:'Acute Behavioural Disturbance',time:'1400–1530',type:'theory',sg:[{p:'Parts 12 & 16',qs:['12.1 ANS divisions','12.2 SNS vs PNS','16.8 Serotonin syndrome']}]},
+    ]},
+    {day:'Wed 5 Aug',ss:[
+      {t:'Paediatric Emergencies — Full Day (Specialist)',time:'0800–1400',type:'theory',isNew:true,sg:[{p:'Parts 24 & 15',qs:['24.1–24.12 All paediatric questions — PAT, physiological differences, weight estimation, drug dosing, cardiac arrest, NAI, newborn resuscitation','15.5 Febrile convulsions in children']}]},
+      {t:'Paediatric Airway Management',time:'0800–0930',type:'theory',isNew:true,sg:[{p:'Parts 17 & 24',qs:['17.1 Airway devices and lifelines','17.2 CICO states','17.3 Surgical cric paediatric modifications','24.6 ETT sizing in paediatrics']}]},
+      {t:'Paediatric Simulation Scenarios',time:'1000–1400',type:'sim',isNew:true,sg:[{p:'Parts 24 & 19',qs:['24.7 Paediatric defibrillation energy','24.8 Adrenaline in paediatric arrest','24.9 Severe paediatric asthma management']}]},
+    ]},
+    {day:'Thu 6 Aug',ss:[
+      {t:'Cardiac Arrest Scenarios — ICP Level',time:'0800–1200',type:'sim',sg:[{p:'Parts 19 & 20',qs:['19.1–19.8 Full cardiac arrest content','20.1–20.10 Full ROSC content']}]},
+      {t:'LUCAS mCPR Structured Scenarios',time:'1230–1400',type:'sim',sg:[{p:'Part 19',qs:['19.7 Benefits of mechanical CPR','19.8 Medication for conscious state']}]},
+      {t:'Syringe Driver Workshop',time:'1400–1530',type:'skills',sg:[{p:'Part 20',qs:['20.6 Fentanyl/midazolam infusion','20.7 Ketamine infusion','20.8 Morphine/midazolam infusion']}]},
+    ]},
+    {day:'Fri 7 Aug',ss:[
+      {t:'ROSC Management Theory (Advanced)',time:'0800–1000',type:'theory',sg:[{p:'Part 20',qs:['20.1–20.10 All ROSC management questions']}]},
+      {t:'Respiratory Emergencies',time:'1000–1130',type:'theory',sg:[{p:'Parts 10 & 5',qs:['10.1–10.8 Respiratory physiology','5.4 Asthma and COPD pathophysiology']}]},
+      {t:'Sepsis & Septic Shock',time:'1230–1400',type:'theory',isNew:true,sg:[{p:'Part 21',qs:['21.1–21.12 All sepsis questions — Sepsis-3 definition, pathophysiology, warm/cold phenotype, noradrenaline preparation, MAP target, fluid resuscitation, septic cardiomyopathy']}]},
+      {t:'Medical Scenarios',time:'1400–1600',type:'sim',sg:[{p:'Parts 7, 8 & 21',qs:['7.9 Cardiogenic shock','8.5 APO differentiation','21.4 Septic shock haemodynamic profile']}]},
+    ]},
+  ]},
+  {wk:'w3',label:'Advanced Airway, Cardiology & Neurological Emergencies',dates:'Mon 10 Aug – Fri 14 Aug 2026',days:[
+    {day:'Mon 10 Aug',ss:[
+      {t:'Trauma Exam',time:'0800–0930',type:'exam',sg:[{p:'Part 18',qs:['18.1–18.14 All trauma questions']}]},
+      {t:'Advanced Airway — Full Day (Specialist)',time:'0930–1200',type:'theory',sg:[{p:'Part 17',qs:['17.1–17.8 All airway vortex questions']}]},
+      {t:'Video Laryngoscopy',time:'0930–1100',type:'theory',sg:[{p:'Part 17',qs:['17.7 Differences between traditional and video laryngoscopy','17.5 Airway ramping importance']}]},
+      {t:'Surgical Airways (FONA)',time:'1100–1200',type:'skills',sg:[{p:'Part 17',qs:['17.2 CICO states','17.3 Surgical cricothyroidotomy — including paediatric recommendations']}]},
+      {t:'Skills 6 — Laryngoscopy Deliberate Practice',time:'1230–1400',type:'skills',sg:[{p:'Part 17',qs:['17.6 30-second drills','17.7 VL vs DL']}]},
+      {t:'SALAD Scenarios',time:'1400–1530',type:'sim',sg:[{p:'Parts 17 & 19',qs:['17.6 30-second drills','19.6 SALAD']}]},
+    ]},
+    {day:'Tue 11 Aug',ss:[
+      {t:'ACS, Heart Failure & Pulmonary Oedema',time:'0800–1200',type:'theory',sg:[{p:'Parts 7 & 8',qs:['7.6 RV infarct pathophysiology','7.7 Posterior infarct','7.8 GTN mechanism at cellular level','8.5 Cardiogenic vs non-cardiogenic APO','8.6 IPPV benefit in APO','8.8 Nephrogenic APO in missed dialysis']}]},
+      {t:'Cardiac Scenarios',time:'1230–1400',type:'sim',sg:[{p:'Parts 7 & 8',qs:['7.9 Cardiogenic shock','7.10 Treatment','8.9 Treatment options nephrogenic APO']}]},
+      {t:'Neurological Emergencies & Stroke',time:'1400–1600',type:'theory',isNew:true,sg:[{p:'Part 25',qs:['25.1–25.11 ROSIER score, ischaemic vs haemorrhagic stroke, Last Known Well, stroke mimics, Stroke Alert pre-notification, SAH, status epilepticus, meningococcal disease']}]},
+    ]},
+    {day:'Wed 12 Aug',ss:[
+      {t:'Head Injuries & Traumatic Brain Injury',time:'0800–1200',type:'theory',isNew:true,sg:[{p:'Part 26',qs:["26.1–26.10 Monro-Kellie doctrine, CPP calculation, 6 secondary brain injury factors, Cushing's triad, hyperventilation harm, RSI criteria in TBI, ketamine evidence, post-intubation management checklist"]}]},
+      {t:'TBI Management Scenarios',time:'1230–1400',type:'sim',isNew:true,sg:[{p:'Parts 26 & 18',qs:['26.3 Modifiable secondary brain injury factors','26.8 Post-intubation TBI checklist','26.10 Permissive hypotension vs TBI conflict']}]},
+      {t:'Cardiothoracic Trauma',time:'1400–1600',type:'theory',sg:[{p:'Part 18',qs:['18.5 Needle vs finger thoracostomy vs pericardiocentesis vs thoracotomy','18.6 Chest seal mechanism']}]},
+    ]},
+    {day:'Thu 13 Aug',ss:[
+      {t:'ECG Interpretation Part 2 — Advanced',time:'0800–1000',type:'theory',sg:[{p:'Parts 11 & 7',qs:['11.5 Pericarditis vs STEMI','11.6 Benign early repolarisation','11.11 Brugada Syndrome','11.12 WPW Syndrome','7.6 RV infarct ECG']}]},
+      {t:'Skills 7 — Needle/Finger Thoracostomy · Chest Seal',time:'1000–1130',type:'skills',sg:[{p:'Part 18',qs:['18.5 All thoracic decompression procedures','18.6 Chest seal']}]},
+      {t:'Complex Airway Cases',time:'1230–1400',type:'sim',sg:[{p:'Part 17',qs:['17.1–17.8 All Airway Vortex content applied in complex scenarios']}]},
+      {t:'Mechanical Ventilation',time:'1400–1530',type:'theory',sg:[{p:'Parts 10, 17 & 20',qs:['17.8 PEEP','10.2 Ventilation stages','20.3 Hyperoxia harm in ventilated patient','20.4 High tidal volume effects']}]},
+    ]},
+    {day:'Fri 14 Aug',ss:[
+      {t:'Integrated Airway Scenarios',time:'0800–1200',type:'sim',sg:[{p:'Part 17',qs:['17.1–17.8 Full airway vortex content']}]},
+      {t:'Neurological Scenarios',time:'1230–1400',type:'sim',isNew:true,sg:[{p:'Parts 25 & 26',qs:['25.1 ROSIER application','25.3 Last Known Well','25.8 Status epilepticus management','26.3 Secondary brain injury prevention','26.5 EtCO2 targets']}]},
+      {t:'Ultrasound (POCUS)',time:'1400–1530',type:'theory',sg:[]},
+    ]},
+  ]},
+  {wk:'w4',label:'Trauma, Obstetrics, Toxicology & Sepsis',dates:'Mon 17 Aug – Fri 21 Aug 2026',days:[
+    {day:'Mon 17 Aug',ss:[
+      {t:'Traumatic Haemorrhage & Damage Control',time:'0800–1200',type:'theory',sg:[{p:'Part 18',qs:['18.1 Shock index','18.2 EtCO2 and hypovolaemia','18.3 Lethal diamond of death','18.4 Packed red blood cells','18.8 TXA mechanism','18.12 Hypothermia in trauma']}]},
+      {t:'Skills 8 — Tourniquet · Wound Packing · Pelvic Binder',time:'1000–1130',type:'skills',sg:[{p:'Part 18',qs:['18.1 Shock index','18.3 Lethal triad']}]},
+      {t:'Traumatic Cardiac Arrest (HOTT Protocol)',time:'1230–1400',type:'theory',sg:[{p:'Parts 19 & 18',qs:['19.4 Priorities in traumatic cardiac arrest','18.5 Thoracic decompression procedures']}]},
+      {t:'The Trapped Patient & Crush Injury',time:'1400–1530',type:'theory',sg:[{p:'Part 9',qs:['9.5 Arterial and venous mechanisms of crush injury','9.6 Complications of crush injury','9.7 Management of crush injury','9.8 Missed dialysis and hyperkalaemia']}]},
+    ]},
+    {day:'Tue 18 Aug',ss:[
+      {t:'Maternal & Obstetric Emergencies — Full Day (Specialist)',time:'0800–1600',type:'theory',isNew:true,sg:[{p:'Parts 23 & 15',qs:['23.1–23.12 All obstetric questions — physiological changes of pregnancy, eclampsia, magnesium sulphate loading dose safety, PPH, HELPERR, APGAR, cultural safety in NT','15.8–15.10 Burns classification, measurement, and IV fluids in burns']}]},
+      {t:'Obstetric Skills — MgSO₄ · NeopuffTM · HELPERR',time:'1000–1200',type:'skills',isNew:true,sg:[{p:'Part 23',qs:['23.4 Magnesium sulphate pharmacology','23.5 Loading dose rate safety','23.8 HELPERR mnemonic','23.9 APGAR scoring and management']}]},
+      {t:'Obstetric Simulation Scenarios',time:'1300–1600',type:'sim',isNew:true,sg:[{p:'Part 23',qs:['23.3 Eclampsia diagnosis','23.6 PPH and uterine atony','23.8 Shoulder dystocia','23.9 Newborn APGAR 3 management']}]},
+    ]},
+    {day:'Wed 19 Aug',ss:[
+      {t:'Toxicology & NT Envenomation — Deep Dive',time:'0800–1200',type:'theory',sg:[{p:'Parts 16 & 12',qs:['16.1–16.8 TCA classes, cardiotoxic effects, serotonin syndrome, NT snake and marine envenomation, quetiapine overdose and adrenaline infusion','12.4 Organophosphate poisoning']}]},
+      {t:'Spinal, Limb & Pelvis Trauma',time:'1230–1400',type:'theory',sg:[{p:'Part 18',qs:['18.7 Neurogenic shock','18.3 Lethal diamond','18.12 Hypothermia']}]},
+      {t:'TBI Advanced Revision',time:'1400–1530',type:'theory',isNew:true,sg:[{p:'Parts 26 & 18',qs:['26.1 Monro-Kellie doctrine','26.10 Permissive hypotension vs TBI conflict','18.13 Paediatric trauma considerations']}]},
+      {t:'Sepsis Scenarios',time:'1530–1630',type:'sim',isNew:true,sg:[{p:'Part 21',qs:['21.3 Septic shock definition','21.4 Warm vs cold phenotype','21.7 Noradrenaline as first-line vasopressor','21.10 MAP target calculation']}]},
+    ]},
+    {day:'Thu 20 Aug',ss:[
+      {t:'Complex Cases',time:'0800–1200',type:'sim',sg:[{p:'All Parts',qs:['Integrated multi-system presentations — all study guide parts apply']}]},
+      {t:'Anaphylaxis — Advanced Management',time:'1230–1400',type:'theory',sg:[{p:'Part 5',qs:['5.3 Anaphylaxis pathophysiology','5.7 Medications causing anaphylaxis','5.9 Chemical mediators and signs/symptoms']}]},
+      {t:'Environmental Emergencies',time:'1400–1530',type:'theory',sg:[{p:'Part 15',qs:["15.1 Boyle's/Dalton's/Henry's Laws",'15.2 Decompression illness','15.3 Stages of drowning','15.6 Exertional hyperthermia','15.7 Hypothermia and bradycardia']}]},
+      {t:'Advanced Trauma Scenarios',time:'1530–1630',type:'sim',sg:[{p:'Part 18',qs:['18.1–18.14 All trauma questions']}]},
+    ]},
+    {day:'Fri 21 Aug',ss:[
+      {t:'Tactical & Remote Medicine',time:'0800–1000',type:'theory',sg:[{p:'Part 18',qs:['18.8 TXA mechanism','18.1 Shock index']}]},
+      {t:'Self Care & Wellbeing',time:'1000–1100',type:'theory',sg:[]},
+      {t:'Single Responder Simulation',time:'1230–1400',type:'sim',sg:[{p:'All Parts',qs:['Full integration of all study guide parts in solo responder context']}]},
+      {t:'Scene Leadership',time:'1400–1530',type:'theory',sg:[]},
+      {t:'Penetrating Trauma Simulation',time:'1530–1630',type:'sim',sg:[{p:'Part 18',qs:['18.5 Thoracic decompression procedures','18.6 Chest seal','18.8 TXA']}]},
+    ]},
+  ]},
+  {wk:'w5',label:'Human Factors, Leadership & Formative Assessment',dates:'Mon 24 Aug – Fri 28 Aug 2026',days:[
+    {day:'Mon 24 Aug',ss:[
+      {t:'Human Factors & CRM — Specialist Day',time:'0800–1200',type:'theory',isNew:true,sg:[{p:'Part 22',qs:["22.1 Endsley's SA model",'22.2 SA failure modes','22.3 HeliNOTS 5 categories','22.4 CRM principles','22.5 Closed-loop communication','22.6 Authority gradient','22.7 Two-Challenge Rule and PACE','22.8 Cognitive biases','22.9 Fatigue effects','22.10 Role of checklists','22.11 Psychological safety','22.12 Dynamic subordination']}]},
+      {t:'HeliNOTS Self-Debrief Workshop',time:'1230–1400',type:'theory',isNew:true,sg:[{p:'Part 22',qs:['22.3 HeliNOTS 5 categories and behavioural markers','22.11 Psychological safety']}]},
+      {t:'CRM Assertiveness Role-Play',time:'1400–1530',type:'sim',isNew:true,sg:[{p:'Part 22',qs:['22.7 Two-Challenge Rule and PACE model','22.6 Authority gradient problem']}]},
+    ]},
+    {day:'Tue 25 Aug',ss:[
+      {t:'Leadership & Dynamic Subordination',time:'0800–1000',type:'theory',isNew:true,sg:[{p:'Part 22',qs:['22.12 Dynamic subordination','22.11 Psychological safety','22.5 Closed-loop communication']}]},
+      {t:'Stroke & Neurological Emergencies — Revision',time:'1000–1200',type:'theory',sg:[{p:'Part 25',qs:['25.1 ROSIER score','25.3 Last Known Well','25.5 Stroke Alert pre-notification','25.6 SAH — why sedate with caution','25.7 BP management ischaemic vs haemorrhagic','25.8 Status epilepticus escalation']}]},
+      {t:'Mental Health & ABD',time:'1230–1400',type:'theory',sg:[{p:'Parts 12 & 16',qs:['12.1 ANS divisions','12.2 SNS vs PNS','16.8 Serotonin syndrome']}]},
+      {t:'Medical Simulation',time:'1400–1600',type:'sim',sg:[{p:'Parts 7, 8, 21 & 25',qs:['21.7 Vasopressor therapy in sepsis','25.1 Stroke ROSIER application','7.9 Cardiogenic shock']}]},
+    ]},
+    {day:'Wed 26 Aug',ss:[
+      {t:'Formative Practical Assessment — Adult Scenarios',time:'0800–1600',type:'exam',sg:[{p:'All Parts',qs:['All 26 study guide parts assessed in integrated simulation — ICP leads clinical management across medical, cardiac, airway, and trauma presentations. HeliNOTS non-technical skills assessed concurrently.']}]},
+    ]},
+    {day:'Thu 27 Aug',ss:[
+      {t:'Formative Practical Assessment — Paediatric & Obstetric',time:'0800–1200',type:'exam',sg:[{p:'Parts 23 & 24',qs:['23.1–23.12 Obstetric emergencies assessed in simulation','24.1–24.12 Paediatric emergencies assessed in simulation']}]},
+      {t:'Individual Feedback & Development Planning',time:'1230–1400',type:'theory',sg:[]},
+      {t:'Environmental Emergencies & Block A Close',time:'1400–1600',type:'theory',sg:[{p:'Part 15',qs:['15.1–15.10 All environmental emergency questions']}]},
+    ]},
+    {day:'Fri 28 Aug',ss:[
+      {t:'Theatre Placement Briefing',time:'0800–1000',type:'theory',sg:[{p:'Part 17',qs:['17.5 Airway ramping','17.6 30-second drills','17.7 VL vs DL']}]},
+      {t:'Block A Close — Case Presentations',time:'1000–1200',type:'sim',sg:[{p:'All Parts',qs:['Final integration of all 26 study guide parts']}]},
+      {t:'Self-Directed Study & Debrief',time:'1230–1400',type:'theory',sg:[]},
+    ]},
+  ]},
+  {wk:'w6',label:'Block B — RSI Capstone, Summative Assessment & ATP',dates:'Mon 31 Aug – Fri 4 Sep 2026',days:[
+    {day:'Mon 31 Aug',ss:[
+      {t:'Block B Opening — Theatre Placement Review',time:'0800–1000',type:'theory',sg:[{p:'Part 17',qs:['17.1–17.8 Full Airway Vortex review']}]},
+      {t:'RSI Introduction & Decision-Making',time:'1000–1200',type:'theory',sg:[{p:'Parts 17 & 18',qs:['17.1–17.8 All airway content','18.9 Ketamine mechanism of action','18.10 Ketamine adverse effects','18.11 Ketamine cardiac effects']}]},
+      {t:'Advanced Airway Strategies',time:'1230–1400',type:'theory',sg:[{p:'Part 17',qs:['17.2 CICO states','17.3 Surgical cric — paediatric modifications','17.7 VL vs DL']}]},
+      {t:'Airway Workshops — SALAD · FONA · VL',time:'1400–1600',type:'skills',sg:[{p:'Part 17',qs:['17.6 30-second drills','17.2 CICO states','17.3 Surgical airways']}]},
+    ]},
+    {day:'Tue 1 Sep',ss:[
+      {t:'SSA — Summative Practical Assessment 1',time:'0800–1600',type:'exam',sg:[{p:'All Parts',qs:['Summative assessment across all clinical domains — technical and non-technical skills assessed using ISAMD scale and HeliNOTS framework simultaneously']}]},
+    ]},
+    {day:'Wed 2 Sep',ss:[
+      {t:'SSA — Summative Practical Assessment 2',time:'0800–1200',type:'exam',sg:[{p:'All Parts',qs:['Summative assessment continued — trauma, obstetric, and paediatric scenario focuses']}]},
+      {t:'Case Presentations — Panel',time:'1230–1600',type:'exam',sg:[{p:'All Parts',qs:['Candidate-led case presentations integrating all course content — clinical reasoning assessed at ICP level']}]},
+    ]},
+    {day:'Thu 3 Sep',ss:[
+      {t:'RSI ATP Panel Assessment',time:'0800–1200',type:'exam',sg:[{p:'Parts 17, 18 & 20',qs:['17.1–17.8 Full airway content','18.9–18.11 Ketamine pharmacology','20.6–20.9 Post-intubation sedation and gastric tube']}]},
+      {t:'Supplementary Scenarios & Exam Vivas',time:'1230–1600',type:'sim',sg:[{p:'All Parts',qs:['All 26 study guide parts — viva questions focus on mechanism-level understanding, not just protocol recall']}]},
+    ]},
+    {day:'Fri 4 Sep',ss:[
+      {t:'Advanced Cardiology Revision',time:'0800–1000',type:'theory',sg:[{p:'Parts 7 & 8',qs:['7.6 RV infarct','7.8 GTN mechanism','8.5 APO differentiation']}]},
+      {t:'Course Debrief & Graduation',time:'1000–1200',type:'theory',sg:[]},
+      {t:'Theatre Placement Close-Out',time:'1230–1400',type:'theory',sg:[]},
+    ]},
+  ]},
+];
+
+function renderTT(){
+  const c=document.getElementById('tt');
+  let h='';
+  weeks.forEach(w=>{
+    h+=`<div class="wblock"><div class="wheader"><span class="wbadge ${w.wk}">${WL[w.wk]}</span><span class="wtitle">${w.label}</span><span class="wdates">${w.dates}</span></div><div class="dgrid">`;
+    w.days.forEach(d=>{
+      h+=`<div class="dcol"><div class="dhead">${d.day}</div>`;
+      d.ss.forEach(s=>{
+        const tc=s.type==='exam'?'texam':s.type==='skills'?'tskills':s.type==='sim'?'tsim':'';
+        let tags='';
+        if(s.sg&&s.sg.length){
+          const pts=[...new Set(s.sg.map(r=>r.p.replace('All Parts','All')))].join(' · ');
+          tags+=`<div class="stags"><span class="stag study">${pts}</span>`;
+          if(s.type==='exam')tags+=`<span class="stag exam">EXAM</span>`;
+          if(s.isNew)tags+=`<span class="stag new">New 2026</span>`;
+          tags+=`</div>`;
+        }else if(s.type==='exam'){tags=`<div class="stags"><span class="stag exam">EXAM</span></div>`;}
+        else if(s.isNew){tags=`<div class="stags"><span class="stag new">New 2026</span></div>`;}
+        const nd=s.isNew?`<span style="display:inline-block;width:7px;height:7px;background:#0a9c5a;border-radius:50%;margin-left:4px;vertical-align:middle;"></span>`:'';
+        const enc=JSON.stringify(s).replace(/'/g,"\\u0027");
+        h+=`<div class="session ${w.wk} ${tc}" onclick='om(${JSON.stringify(s)},"${w.wk}","${d.day}")'><div class="stitle">${s.t}${nd}</div><div class="stime">${s.time}</div>${tags}</div>`;
+      });
+      h+=`</div>`;
+    });
+    h+=`</div></div>`;
+  });
+  c.innerHTML=h;
+}
+
+function renderSG(){
+  const g=document.getElementById('sgg');
+  let h='';
+  SG.forEach(p=>{
+    const wb=p.weeks.map(w=>`<span class="mb ${w}">${WL[w]}</span>`).join('');
+    const nb=p.isNew?`<span class="mb new">New 2026</span>`:'';
+    const qs=p.qs.map(q=>`<div class="sgq" id="q-${q.n.replace('.','_')}"><span class="sqn">${q.n}</span><span>${q.q}</span></div>`).join('');
+    h+=`<div class="sgp" id="${p.id}"><div class="sgph" onclick="tp('${p.id}')"><div class="pnum">${p.n}</div><div class="pinfo"><div class="ptitle">${p.title}</div><div class="pwb">${wb}${nb}</div></div><div class="pchev">▶</div></div><div class="sgqs">${qs}</div></div>`;
+  });
+  g.innerHTML=h;
+}
+
+function tp(id){document.getElementById(id).classList.toggle('open');}
+
+function filterSG(t){
+  const tl=t.toLowerCase().trim();
+  SG.forEach(p=>{
+    let any=false;
+    const el=document.getElementById(p.id);
+    if(!el)return;
+    p.qs.forEach(q=>{
+      const qEl=el.querySelector(`#q-${q.n.replace('.','_')}`);
+      if(!qEl)return;
+      const m=!tl||q.q.toLowerCase().includes(tl)||q.n.includes(tl)||p.title.toLowerCase().includes(tl);
+      qEl.style.display=m?'':'none';
+      if(m)any=true;
+    });
+    el.style.display=(!tl||any)?'':'none';
+    if(tl&&any)el.classList.add('open');
+    else if(!tl)el.classList.remove('open');
+  });
+}
+
+function renderProgress(){
+  const saved=JSON.parse(localStorage.getItem('icp26p')||'{}');
+  const g=document.getElementById('pgrid');
+  let h='';
+  SG.forEach(p=>{
+    const tot=p.qs.length,done=p.qs.filter(q=>saved[q.n]).length,pct=Math.round(done/tot*100);
+    const nb=p.isNew?`<span style="font-size:9px;font-weight:800;padding:2px 6px;border-radius:10px;background:#d4f7e7;color:#0a5c2f;border:1px solid #80e4b0;margin-left:6px;">New 2026</span>`:'';
+    const qs=p.qs.map(q=>`<div class="qcheck ${saved[q.n]?'done':''}" id="qc-${q.n.replace('.','_')}"><input type="checkbox" id="cb-${q.n.replace('.','_')}" ${saved[q.n]?'checked':''} onchange="tq('${q.n}')"><label for="cb-${q.n.replace('.','_')}">${q.n} — ${q.q}</label></div>`).join('');
+    h+=`<div class="pcard"><div class="pcardtitle">Part ${p.n}: ${p.title}${nb}</div><div class="pbwrap"><div class="pb" id="pb-${p.id}" style="width:${pct}%"></div></div><div class="pstats"><span>${done} of ${tot} reviewed</span><span>${pct}%</span></div><div>${qs}</div></div>`;
+  });
+  g.innerHTML=h;
+}
+
+function tq(qn){
+  const s=JSON.parse(localStorage.getItem('icp26p')||'{}');
+  s[qn]=!s[qn];
+  localStorage.setItem('icp26p',JSON.stringify(s));
+  const k=qn.replace('.','_');
+  const r=document.getElementById(`qc-${k}`);
+  if(r)r.classList.toggle('done',!!s[qn]);
+  const p=SG.find(p=>p.qs.some(q=>q.n===qn));
+  if(!p)return;
+  const tot=p.qs.length,done=p.qs.filter(q=>s[q.n]).length,pct=Math.round(done/tot*100);
+  const pb=document.getElementById(`pb-${p.id}`);
+  if(pb)pb.style.width=pct+'%';
+  const card=pb&&pb.closest('.pcard');
+  if(card){const sp=card.querySelectorAll('.pstats span');if(sp[0])sp[0].textContent=`${done} of ${tot} reviewed`;if(sp[1])sp[1].textContent=`${pct}%`;}
+}
+
+function om(s,wk,day){
+  document.getElementById('mbar').className=`mbar ${wk}`;
+  document.getElementById('mwl').textContent=`${WL[wk]}  ·  ${day}`;
+  document.getElementById('mtitle').textContent=s.t;
+  const tl={theory:'Theory',skills:'Skills Station',sim:'Simulation / Scenario',exam:'Exam / Assessment',field:'Field Exercise'}[s.type]||s.type;
+  document.getElementById('mmeta').textContent=`⏱ ${s.time}  ·  ${tl}`;
+  let body='';
+  if(s.type==='exam')body+=`<div class="msec"><div class="mstitle">Assessment</div><div class="pbox"><strong style="color:var(--w1);">⚠ Formal Exam / Assessment</strong>${s.isNew?' <span style="color:#0a9c5a;font-weight:700;">★ Includes new 2026 content.</span>':''} Review all linked study guide parts thoroughly before this event. Exams assess mechanism-level understanding, not just protocol recall.</div></div>`;
+  if(s.sg&&s.sg.length){
+    body+=`<div class="msec"><div class="mstitle">Study Guide — Prepare These Questions</div>`;
+    s.sg.forEach(r=>{
+      body+=`<div style="margin:7px 0 4px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);">${r.p}</div>`;
+      r.qs.forEach(q=>{body+=`<div class="sref"><span class="srn">▸</span><span class="srt">${q}</span></div>`;});
+    });
+    body+=`</div>`;
+    const tips={theory:'<div class="pbox"><strong>Before attending:</strong> Read the linked study guide questions and prepare brief answers from memory. Arriving prepared means you engage rather than just receive.</div>',skills:'<div class="pbox"><strong>Before skills practice:</strong> Understand the theoretical basis from the linked questions. Knowing the "why" improves technique acquisition speed.</div>',sim:'<div class="pbox"><strong>Before simulation:</strong> Mentally rehearse the clinical scenario. Review drug doses, criteria, and management sequences from memory — not from your phone.</div>',exam:'<div class="pbox"><strong>Exam preparation:</strong> Review all linked parts thoroughly. Focus on mechanisms — "why does this drug work?" not just "what do I give?"</div>'};
+    body+=`<div class="msec">${(tips[s.type]||tips.theory)}</div>`;
+  }else{body+=`<div class="msec"><div class="pbox">This session is primarily operational or experiential — no specific study guide preparation required. All prior learning applies.</div></div>`;}
+  document.getElementById('mbody').innerHTML=body;
+  document.getElementById('mo').classList.add('open');
+}
+
+function cm(){document.getElementById('mo').classList.remove('open');}
+function cmo(e){if(e.target.id==='mo')cm();}
+
+function showTab(t){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`tab-${t}`).classList.add('active');
+  document.querySelector(`[onclick="showTab('${t}')"]`).classList.add('active');
+  if(t==='timetable'&&!document.getElementById('tt').innerHTML)renderTT();
+  if(t==='studyguide'&&!document.getElementById('sgg').innerHTML)renderSG();
+  if(t==='tracker')renderProgress();
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')cm();});
+renderTT();renderSG();
+</script>
+</body>
+</html>
